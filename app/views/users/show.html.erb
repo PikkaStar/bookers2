@@ -11,5 +11,33 @@
     <td><%= @user.introduction %></td>
   </tr>
   </table>
-  
+  <%= link_to "編集アイコン",edit_user_path(@user) %>
+</div>
+
+<div>
+  <h1>New book</h1>
+<%= form_with model: @book do |f|%>
+<p>Title</p>
+<%= f.text_field :title %>
+
+<p>Opinion</p>
+<%= f.text_area :body %><br>
+<%= f.submit "投稿" %>
+
+<% end %>
+</div>
+
+<div>
+  <h1>Books</h1>
+
+<% @books.each do |book| %>
+
+<p>Title</p>
+<%= link_to book_path(book.id) do %>
+<%= book.title %>
+<% end %>
+<p>Opinion</p>
+<%= book.body %>
+<% end %>
+
 </div>
