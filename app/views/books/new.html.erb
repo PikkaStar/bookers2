@@ -1,0 +1,10 @@
+<h1>新規投稿</h1>
+<%= form_with model: @book do |f|%>
+<p>タイトル</p>
+<%= f.text_field :title %>
+
+<p>本文</p>
+<%= f.text_area :body %>
+<%= f.submit "投稿" %>
+
+<% end %>

@@ -1,0 +1,10 @@
+<h1>index</h1>
+
+<% @books.each do |book| %>
+
+<p>タイトル:<%= link_to book_path(book.id) do %>
+<%= book.title %></p>
+<% end %>
+<p>本文:<%= book.body %></p>
+
+<% end %>
