@@ -2,9 +2,21 @@
 
 <% @books.each do |book| %>
 
-<p>タイトル:<%= link_to book_path(book.id) do %>
-<%= book.title %></p>
+<p>Title</p>
+<%= link_to book_path(book.id) do %>
+<%= book.title %>
 <% end %>
-<p>本文:<%= book.body %></p>
+<p>Opinion</p>
+<%= book.body %>
+<% end %>
+
+<h1>New book</h1>
+<%= form_with model: @book do |f|%>
+<p>Title</p>
+<%= f.text_field :title %>
+
+<p>Opinion</p>
+<%= f.text_area :body %>
+<%= f.submit "投稿" %>
 
 <% end %>

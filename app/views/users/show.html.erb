@@ -1,2 +1,15 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div>
+  <h1>User info</h1>
+  <%= image_tag @user.get_profile_image(100,100) %><br>
+  <table>
+    <tr>
+  <td>name</td>
+  <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td>introduction</td>
+    <td><%= @user.introduction %></td>
+  </tr>
+  </table>
+  
+</div>
