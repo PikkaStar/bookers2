@@ -1,4 +1,4 @@
- <div>
+<div>
   <div>
   <h1>User info</h1>
   <%= image_tag @user.get_profile_image(100,100) %><br>
@@ -16,25 +16,37 @@
 </div>
 </div>
 
-<h1>Books</h1>
 
-<% @books.each do |book| %>
-
-<p>Title</p>
-<%= link_to book_path(book.id) do %>
-<%= book.title %>
-<% end %>
-<p>Opinion</p>
-<%= book.body %>
-<% end %>
-
-<h1>New book</h1>
+<div>
+  <h1>New book</h1>
 <%= form_with model: @book do |f|%>
 <p>Title</p>
 <%= f.text_field :title %>
 
 <p>Opinion</p>
-<%= f.text_area :body %>
+<%= f.text_area :body %><br>
 <%= f.submit "投稿" %>
 
 <% end %>
+</div>
+
+
+
+
+<div>
+  <h1>Users</h1>
+  
+  <% @users.each do |user| %>
+  <table>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+    </tr>
+    <tr>
+      <td><%= image_tag user.get_profile_image(100,100) %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "show",user_path(user.id) %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>
