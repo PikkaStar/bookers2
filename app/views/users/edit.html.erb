@@ -1,10 +1,22 @@
-
+<div class="container">
+  <% if @user.errors.any? %>
+  <%= @user.errors.count %>error prohibited this obj from being saved:
+  <ul>
+  <% @user.errors.full_messages.each do |message| %>
+  <li>
+    <%= message %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
+  
+  <div class="mx-auto col-6">
 <h1>User info</h1>
 <%= form_with model: @user do |f| %>
 <div>
-  <div></div>
+  
 <%= f.label :name %><br>
-<%= f.text_field :name %><br>
+<%= f.text_field :name,size: "60" %><br>
 </div>
 <div>
 <%= f.label :profile_image %><br>
@@ -12,10 +24,11 @@
 </div>
 <div></div>
 <%= f.label :introduction %><br>
-<%= f.text_area :introduction %><br>
-</div>
+<%= f.text_area :introduction,size: "60" %><br>
+
 <div>
-<%= f.submit "Update user" %>
+<%= f.submit "Update user",class:"btn btn-success" %>
+</div>
 </div>
 <% end %>
 </div>

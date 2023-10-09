@@ -22,7 +22,7 @@
       </li>
       
      <li class="col-1 p-3 offset-1" style="list-style:none;">
-        <%= link_to books_path do %>
+        <%= link_to user_path(current_user.id) do %>
          <i class="fa-solid fa-house"></i>Home
          <% end %>
       </li>
@@ -77,6 +77,9 @@
      </div>
       </div>
     </herder>
+    <% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "flash flash #{key}") %>
+  <% end %>
     <%= yield %>
   </body>
 </html>
