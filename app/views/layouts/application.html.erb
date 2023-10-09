@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script src="https://kit.fontawesome.com/6726daaf8d.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,36 +16,36 @@
       <% if user_signed_in? %>
        <div class="container-fluid p-0" style="background-color:silver;">
   <nav class="navbar">
-   
+
       <li class="col-4 p-3" style= text-align:center;list-style:none;>
       <%= link_to "Bookers",root_path,class:"btn btn-dark" %>
       </li>
-      
+
      <li class="col-1 p-3 offset-1" style="list-style:none;">
         <%= link_to user_path(current_user.id) do %>
-         <i class="fa-solid fa-house"></i>Home
+         <i class="fa-solid fa-home"></i>Home
          <% end %>
       </li>
-      
+
        <li class="col-1 p-3" style="list-style:none;">
         <%= link_to users_path do %>
         <i class="fa-solid fa-users"></i>Users
         <% end %>
       </li>
-      
+
       <li class="col-1 p-3" style="list-style:none;">
         <%= link_to books_path do %>
         <i class="fa-solid fa-book-open"></i>Books
         <% end %>
       </li>
-      
+
       <li class="col-1 p-3" style="list-style:none;">
         <%= link_to destroy_user_session_path,method: :delete do %>
-        <i class="fa-solid fa-right-from-bracket"></i>Log out
+       <i class="fa-solid fa-sign-out-alt"></i> Log out
         <% end %>
       </li>
      </nav>
-    
+
       <% else %>
      <div  class="container-fluid p-0" style="background-color:silver;">
        <nav class="navbar">
@@ -53,8 +53,8 @@
       <%= link_to "Bookers",root_path,class:"btn btn-dark" %>
       </li>
       <li class="col-1 p-3 offset-1" style="list-style:none;">
-        <%= link_to books_path do %>
-        <i class="fa-solid fa-house"></i>Home
+        <%= link_to root_path do %>
+        <i class="fa-solid fa-home"></i>Home
         <% end %>
       </li>
       <li class="col-1 p-3" style="list-style:none;">
@@ -69,7 +69,7 @@
       </li>
       <li class="col-1 p-3" style="list-style:none;">
         <%= link_to new_user_session_path do %>
-        <i class="fa-solid fa-arrow-right-to-bracket"></i>Log in
+        <i class="fa-solid fa-sign-in-alt"></i>Log in
         <% end %>
       </li>
       </nav>

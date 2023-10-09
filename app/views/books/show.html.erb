@@ -1,7 +1,7 @@
 <div class="container">
- 
+
 <div class="row">
-<div class="col-3" style=flex-direction:column;>
+<div class="col-md-3" style=flex-direction:column;>
   <h1>User info</h1>
   <%= image_tag @user.get_profile_image(100,100) %><br>
   <table class="table">
@@ -14,11 +14,11 @@
     <td><%= @user.introduction %></td>
   </tr>
   </table>
-  
-  <div class="row" style="justify-content:center;">
-    <%= link_to edit_user_path(@user) do %>
-    <button type="button" class="btn btn-outline-secondary btn-block">
-  <i class="fa-solid fa-user-gear"></i>
+
+  <div class="row">
+    <%= link_to edit_user_path(@user),class:"btn btn-outline-secondary btn-block" do %>
+   
+ <i class="fas fa-user-cog"></i>
   </button>
   <% end %>
 </div>
@@ -38,7 +38,7 @@
 </div>
 
 
-<div class="col-8 offset-1">
+<div class="col-md-8 offset-md-1">
 <h1>Book detail</h1>
 <table class="table">
   <tr>
@@ -72,4 +72,11 @@
 </table>
 </div>
 </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="mx-auto">
+      <p>CopyRight Infratop.inc</p>
+    </div>
+  </div>
 </div>
