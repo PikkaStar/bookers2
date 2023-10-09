@@ -1,8 +1,9 @@
-<div>
-  <div>
+<div class="container">
+<div class="row">
+<div class="col-3" style=flex-direction:column;>
   <h1>User info</h1>
   <%= image_tag @user.get_profile_image(100,100) %><br>
-  <table>
+  <table class="table">
     <tr>
   <td>name</td>
   <td><%= @user.name %></td>
@@ -12,37 +13,62 @@
     <td><%= @user.introduction %></td>
   </tr>
   </table>
-  <%= link_to "編集アイコン",edit_user_path(@user) %>
-</div>
-</div>
-
-
-<div>
-<h1>Book detail</h1>
-
-<%= image_tag @user.get_profile_image(100,100) %>
-<%= link_to user_path(@user.id) do %>
-<%= @user.name %>
-<% end %>
-<%= link_to book_path(@book) do %>
-<%= @book.title %>
-<% end %>
-<%= @book.body %>
-
-<% if @book.user_id == current_user.id %>
-<%= link_to "Edit",edit_book_path(@book) %>
-<%= link_to "Destroy",book_path(@book),method: :delete %>
-<% end %>
+  
+  <div class="row" style="justify-content:center;">
+    <%= link_to edit_user_path(@user) do %>
+    <button type="button" class="btn btn-outline-secondary btn-block">
+  <i class="fa-solid fa-user-gear"></i>
+  </button>
+  <% end %>
 </div>
 <div>
-<h1>New book</h1>
-<%= form_with model: @book_new do |f|%>
+  <h1>New book</h1>
+<%= form_with model: @book_new,url: books_path,method: :post do |f|%>
 <p>Title</p>
 <%= f.text_field :title %>
 
 <p>Opinion</p>
-<%= f.text_area :body %>
-<%= f.submit "投稿" %>
+<%= f.text_area :body %><br>
+<button class="btn btn-primary" type="submit">Create Book</button>
+
 
 <% end %>
+</div>
+</div>
+
+
+<div class="col-8 offset-1">
+<h1>Book detail</h1>
+<table class="table">
+  <tr>
+    <td><%= link_to user_path(@user.id) do %>
+<%= image_tag @user.get_profile_image(100,100) %><br>
+<%= @user.name %>
+<% end %>
+</td>
+<td>
+<%= link_to book_path(@book) do %>
+<%= @book.title %>
+<% end %>
+</td>
+<td>
+<%= @book.body %>
+</td>
+
+<td>
+<% if @book.user_id == current_user.id %>
+<%= link_to edit_book_path(@book) do %>
+<button class="btn btn-primary" type="submit">Edit</button>
+<% end %>
+</td>
+<td>
+<%= link_to book_path(@book),method: :delete do %>
+<button class="btn btn-primary" type="submit">Destroy</button>
+<% end %>
+</td>
+<% end %>
+</tr>
+</table>
+</div>
+</div>
 </div>

@@ -11,42 +11,71 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container">
-    <herder class="row">
+  <body class="d-flex flex-column">
+    <herder>
       <% if user_signed_in? %>
-      <li>
-      <%= link_to "Bookers",root_path %>
-      </li>
-     <li>
-        <%= link_to "Home",books_path %>
-      </li>
-       <li>
-        <%= link_to "Users",users_path %>
+       <div class="container-fluid p-0" style="background-color:silver;">
+  <nav class="navbar">
+   
+      <li class="col-4 p-3" style= text-align:center;list-style:none;>
+      <%= link_to "Bookers",root_path,class:"btn btn-dark" %>
       </li>
       
-      <li>
-        <%= link_to "Books",books_path %>
+     <li class="col-1 p-3 offset-1" style="list-style:none;">
+        <%= link_to books_path do %>
+         <i class="fa-solid fa-house"></i>Home
+         <% end %>
       </li>
-      <li>
-        <%= link_to "Log out",destroy_user_session_path,method: :delete %>
+      
+       <li class="col-1 p-3" style="list-style:none;">
+        <%= link_to users_path do %>
+        <i class="fa-solid fa-users"></i>Users
+        <% end %>
       </li>
+      
+      <li class="col-1 p-3" style="list-style:none;">
+        <%= link_to books_path do %>
+        <i class="fa-solid fa-book-open"></i>Books
+        <% end %>
+      </li>
+      
+      <li class="col-1 p-3" style="list-style:none;">
+        <%= link_to destroy_user_session_path,method: :delete do %>
+        <i class="fa-solid fa-right-from-bracket"></i>Log out
+        <% end %>
+      </li>
+     </nav>
+    
       <% else %>
-       <li>
-      <%= link_to "Bookers",root_path %>
+     <div  class="container-fluid p-0" style="background-color:silver;">
+       <nav class="navbar">
+       <li class="col-4 p-3" style= text-align:center;list-style:none;>
+      <%= link_to "Bookers",root_path,class:"btn btn-dark" %>
       </li>
-      <li>
-        <%= link_to "Home",books_path %>
+      <li class="col-1 p-3 offset-1" style="list-style:none;">
+        <%= link_to books_path do %>
+        <i class="fa-solid fa-house"></i>Home
+        <% end %>
       </li>
-      <li>
-        <%= link_to "about",about_path %>
+      <li class="col-1 p-3" style="list-style:none;">
+        <%= link_to about_path do %>
+        <i class="fa-solid fa-link"></i>About
+        <% end %>
       </li>
-      <li>
-        <%= link_to "Sign up",new_user_registration_path %>
+      <li class="col-1 p-3" style="list-style:none;text-align:center;">
+        <%= link_to new_user_registration_path do %>
+        <i class="fa-solid fa-user-plus"></i>Sign up
+        <% end %>
       </li>
-      <li>
-        <%= link_to "Log in",new_user_session_path %>
+      <li class="col-1 p-3" style="list-style:none;">
+        <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>Log in
+        <% end %>
       </li>
+      </nav>
       <% end %>
+     </div>
+      </div>
     </herder>
     <%= yield %>
   </body>

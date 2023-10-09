@@ -1,11 +1,19 @@
+<div class="container-flued">
+  <div class="row" style="flex-direction:column;text-align:center;">
 <h1>Editing Book</h1>
+
+
 <%= form_with model: @book do |f| %>
+<div class="col-8" style="text-align:center;">
 <p>Title</p>
 <%= f.text_field :title %>
-
+<p>Opinion</p>
 <p><%= f.text_area :body %></p>
 
 
 
 <%= f.submit "Update book" %>
 <% end %>
+</div>
+</div>
+</div>

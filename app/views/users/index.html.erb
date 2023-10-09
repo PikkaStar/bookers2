@@ -1,8 +1,9 @@
-<div>
-  <div>
+<div class="container">
+<div class="row">
+  <div class="col-3" style=flex-direction:column;>
   <h1>User info</h1>
   <%= image_tag @user.get_profile_image(100,100) %><br>
-  <table>
+  <table class="table">
     <tr>
   <td>name</td>
   <td><%= @user.name %></td>
@@ -12,11 +13,14 @@
     <td><%= @user.introduction %></td>
   </tr>
   </table>
-  <%= link_to "編集アイコン",edit_user_path(@user) %>
+  
+  <div class="row" style="justify-content:center;">
+    <%= link_to edit_user_path(@user) do %>
+    <button type="button" class="btn btn-outline-secondary btn-block">
+  <i class="fa-solid fa-user-gear"></i>
+  </button>
+  <% end %>
 </div>
-</div>
-
-
 <div>
   <h1>New book</h1>
 <%= form_with model: @book do |f|%>
@@ -25,28 +29,39 @@
 
 <p>Opinion</p>
 <%= f.text_area :body %><br>
-<%= f.submit "投稿" %>
+<button class="btn btn-primary" type="submit">Create Book</button>
+
 
 <% end %>
 </div>
+</div>
 
 
-
-
-<div>
+<div class="col-8 offset-1">
   <h1>Users</h1>
   
-  <% @users.each do |user| %>
-  <table>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-    </tr>
-    <tr>
-      <td><%= image_tag user.get_profile_image(100,100) %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to "show",user_path(user.id) %></td>
-    </tr>
-  </table>
-  <% end %>
+  <table class="table">
+  <tr>
+    <th>image</th>
+    <th>name</th>
+  </tr>
+
+<% @users.each do |user| %>
+
+<tr>
+  <td>
+    <%= image_tag user.get_profile_image(100,100) %>
+  </td>
+
+<td><%= user.name %></td>
+
+<td><%= link_to "show",user_path(user.id) %></td>
+
+</tr>
+<% end %>
+</table>
+
+</div>
+</div>
+
 </div>

@@ -1,5 +1,8 @@
+<div class="container-flued">
+  <div class="row" style="justify-content:center;">
 <h2>Log in</h2>
-
+ </div>
+   <div class="row" style="justify-content:center;">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
@@ -19,8 +22,11 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",class: "btn btn-success"  %>
   </div>
+  <%= render "devise/shared/links" %>
 <% end %>
+</div>
+</div>
 
-<%= render "devise/shared/links" %>
+
